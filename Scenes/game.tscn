@@ -1,0 +1,440 @@
+[gd_scene load_steps=14 format=3 uid="uid://32uxsaou6s0w"]
+
+[ext_resource type="Texture2D" uid="uid://kadaaaqjlst2" path="res://Assets/Connect4Board.png" id="1_w3eao"]
+[ext_resource type="Script" path="res://Scripts/RowController.cs" id="2_il7ab"]
+[ext_resource type="Script" path="res://Scripts/GameManager.cs" id="3_00dle"]
+[ext_resource type="PackedScene" uid="uid://bo06b0d8yad8s" path="res://Scenes/blue_ballx.tscn" id="4_honn6"]
+[ext_resource type="PackedScene" uid="uid://qjqfins2bfig" path="res://Scenes/red_ballx.tscn" id="5_cdsxs"]
+[ext_resource type="AudioStream" uid="uid://cy3fm7ahuph4a" path="res://Assets/BallFall.wav" id="6_682pt"]
+[ext_resource type="AudioStream" uid="uid://cw20o4w6sbt1m" path="res://Assets/PlayerChangeAlert.wav" id="7_88ihg"]
+[ext_resource type="AudioStream" uid="uid://mb55ognepexy" path="res://Assets/Win.wav" id="8_utclg"]
+[ext_resource type="AudioStream" uid="uid://yruqcfsdm2wa" path="res://Assets/cottagecore-17463.mp3" id="9_14wng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hmh5"]
+radius = 30.2655
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivoyo"]
+size = Vector2(60, 505)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j7pq"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucrhd"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Game" type="Node2D"]
+
+[node name="BoardLocations" type="Node" parent="."]
+
+[node name="SpawnLocation" type="Area2D" parent="BoardLocations"]
+position = Vector2(-262, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation2" type="Area2D" parent="BoardLocations"]
+position = Vector2(-262, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation2"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation3" type="Area2D" parent="BoardLocations"]
+position = Vector2(-262, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation3"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation4" type="Area2D" parent="BoardLocations"]
+position = Vector2(-262, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation4"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation5" type="Area2D" parent="BoardLocations"]
+position = Vector2(-262, -132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation5"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation6" type="Area2D" parent="BoardLocations"]
+position = Vector2(-262, -217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation6"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation7" type="Area2D" parent="BoardLocations"]
+position = Vector2(-173, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation7"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation8" type="Area2D" parent="BoardLocations"]
+position = Vector2(-173, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation8"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation9" type="Area2D" parent="BoardLocations"]
+position = Vector2(-173, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation9"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation10" type="Area2D" parent="BoardLocations"]
+position = Vector2(-173, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation10"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation11" type="Area2D" parent="BoardLocations"]
+position = Vector2(-173, -129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation11"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation12" type="Area2D" parent="BoardLocations"]
+position = Vector2(-173, -217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation12"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation13" type="Area2D" parent="BoardLocations"]
+position = Vector2(-86, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation13"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation14" type="Area2D" parent="BoardLocations"]
+position = Vector2(-86, 132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation14"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation15" type="Area2D" parent="BoardLocations"]
+position = Vector2(-86, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation15"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation16" type="Area2D" parent="BoardLocations"]
+position = Vector2(-86, -46)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation16"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation17" type="Area2D" parent="BoardLocations"]
+position = Vector2(-86, -131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation17"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation18" type="Area2D" parent="BoardLocations"]
+position = Vector2(-86, -217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation18"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation19" type="Area2D" parent="BoardLocations"]
+position = Vector2(0, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation19"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation20" type="Area2D" parent="BoardLocations"]
+position = Vector2(0, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation20"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation21" type="Area2D" parent="BoardLocations"]
+position = Vector2(0, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation21"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation22" type="Area2D" parent="BoardLocations"]
+position = Vector2(0, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation22"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation23" type="Area2D" parent="BoardLocations"]
+position = Vector2(0, -131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation23"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation24" type="Area2D" parent="BoardLocations"]
+position = Vector2(0, -217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation24"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation25" type="Area2D" parent="BoardLocations"]
+position = Vector2(87, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation25"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation26" type="Area2D" parent="BoardLocations"]
+position = Vector2(87, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation26"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation27" type="Area2D" parent="BoardLocations"]
+position = Vector2(87, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation27"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation28" type="Area2D" parent="BoardLocations"]
+position = Vector2(87, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation28"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation29" type="Area2D" parent="BoardLocations"]
+position = Vector2(87, -130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation29"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation30" type="Area2D" parent="BoardLocations"]
+position = Vector2(87, -216)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation30"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation31" type="Area2D" parent="BoardLocations"]
+position = Vector2(175, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation31"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation32" type="Area2D" parent="BoardLocations"]
+position = Vector2(175, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation32"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation33" type="Area2D" parent="BoardLocations"]
+position = Vector2(175, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation33"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation34" type="Area2D" parent="BoardLocations"]
+position = Vector2(175, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation34"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation35" type="Area2D" parent="BoardLocations"]
+position = Vector2(175, -131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation35"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation36" type="Area2D" parent="BoardLocations"]
+position = Vector2(175, -217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation36"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation37" type="Area2D" parent="BoardLocations"]
+position = Vector2(263, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation37"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation38" type="Area2D" parent="BoardLocations"]
+position = Vector2(263, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation38"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation39" type="Area2D" parent="BoardLocations"]
+position = Vector2(263, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation39"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation40" type="Area2D" parent="BoardLocations"]
+position = Vector2(263, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation40"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation41" type="Area2D" parent="BoardLocations"]
+position = Vector2(263, -129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation41"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="SpawnLocation42" type="Area2D" parent="BoardLocations"]
+position = Vector2(263, -220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardLocations/SpawnLocation42"]
+shape = SubResource("CircleShape2D_3hmh5")
+
+[node name="Board" type="Sprite2D" parent="."]
+texture = ExtResource("1_w3eao")
+
+[node name="Column0" type="Area2D" parent="Board"]
+position = Vector2(-262, 0)
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column0"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Column1" type="Area2D" parent="Board"]
+position = Vector2(-174, 0)
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+rowNumber = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column1"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Column2" type="Area2D" parent="Board"]
+position = Vector2(-87, 0)
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+rowNumber = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column2"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Column3" type="Area2D" parent="Board"]
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+rowNumber = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column3"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Column4" type="Area2D" parent="Board"]
+position = Vector2(88, 0)
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+rowNumber = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column4"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Column5" type="Area2D" parent="Board"]
+position = Vector2(174, 0)
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+rowNumber = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column5"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Column6" type="Area2D" parent="Board"]
+position = Vector2(261, 0)
+disable_mode = 2
+priority = 1
+script = ExtResource("2_il7ab")
+rowNumber = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Column6"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ivoyo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.17, 1.17)
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("ballPut", "playerChange", "winSound", "bluePlaying", "redPlaying", "editableText", "spawnColumn0", "spawnColumn1", "spawnColumn2", "spawnColumn3", "spawnColumn4", "spawnColumn5", "spawnColumn6")]
+script = ExtResource("3_00dle")
+ballPut = NodePath("../BallPut")
+playerChange = NodePath("../PlayerChange")
+winSound = NodePath("../Win")
+bluePlaying = NodePath("../RedSide/BluePlaying")
+redPlaying = NodePath("../RedSide/RedPlaying")
+editableText = NodePath("../RedSide/TextEdit")
+blueBall = ExtResource("4_honn6")
+redBall = ExtResource("5_cdsxs")
+spawnColumn0 = [NodePath("../BoardLocations/SpawnLocation"), NodePath("../BoardLocations/SpawnLocation2"), NodePath("../BoardLocations/SpawnLocation3"), NodePath("../BoardLocations/SpawnLocation4"), NodePath("../BoardLocations/SpawnLocation5"), NodePath("../BoardLocations/SpawnLocation6")]
+spawnColumn1 = [NodePath("../BoardLocations/SpawnLocation7"), NodePath("../BoardLocations/SpawnLocation8"), NodePath("../BoardLocations/SpawnLocation9"), NodePath("../BoardLocations/SpawnLocation10"), NodePath("../BoardLocations/SpawnLocation11"), NodePath("../BoardLocations/SpawnLocation12")]
+spawnColumn2 = [NodePath("../BoardLocations/SpawnLocation13"), NodePath("../BoardLocations/SpawnLocation14"), NodePath("../BoardLocations/SpawnLocation15"), NodePath("../BoardLocations/SpawnLocation16"), NodePath("../BoardLocations/SpawnLocation17"), NodePath("../BoardLocations/SpawnLocation18")]
+spawnColumn3 = [NodePath("../BoardLocations/SpawnLocation19"), NodePath("../BoardLocations/SpawnLocation20"), NodePath("../BoardLocations/SpawnLocation21"), NodePath("../BoardLocations/SpawnLocation22"), NodePath("../BoardLocations/SpawnLocation23"), NodePath("../BoardLocations/SpawnLocation24")]
+spawnColumn4 = [NodePath("../BoardLocations/SpawnLocation25"), NodePath("../BoardLocations/SpawnLocation26"), NodePath("../BoardLocations/SpawnLocation27"), NodePath("../BoardLocations/SpawnLocation28"), NodePath("../BoardLocations/SpawnLocation29"), NodePath("../BoardLocations/SpawnLocation30")]
+spawnColumn5 = [NodePath("../BoardLocations/SpawnLocation31"), NodePath("../BoardLocations/SpawnLocation32"), NodePath("../BoardLocations/SpawnLocation33"), NodePath("../BoardLocations/SpawnLocation34"), NodePath("../BoardLocations/SpawnLocation35"), NodePath("../BoardLocations/SpawnLocation36")]
+spawnColumn6 = [NodePath("../BoardLocations/SpawnLocation37"), NodePath("../BoardLocations/SpawnLocation38"), NodePath("../BoardLocations/SpawnLocation39"), NodePath("../BoardLocations/SpawnLocation40"), NodePath("../BoardLocations/SpawnLocation41"), NodePath("../BoardLocations/SpawnLocation42")]
+
+[node name="RedSide" type="Panel" parent="."]
+offset_left = -490.0
+offset_top = -276.0
+offset_right = -332.0
+offset_bottom = -196.0
+
+[node name="TextEdit" type="TextEdit" parent="RedSide"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -39.0
+offset_right = 156.0
+offset_bottom = 39.0
+grow_vertical = 2
+text = "CURRENTLY PLAYING"
+wrap_mode = 1
+
+[node name="BluePlaying" type="Panel" parent="RedSide"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 21.0
+offset_right = 20.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3j7pq")
+
+[node name="RedPlaying" type="Panel" parent="RedSide"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 21.0
+offset_right = 20.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ucrhd")
+
+[node name="BallPut" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_682pt")
+
+[node name="PlayerChange" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_88ihg")
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_utclg")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_14wng")
+autoplay = true

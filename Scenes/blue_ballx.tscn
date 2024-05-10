@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo06b0d8yad8s"]
+
+[ext_resource type="Texture2D" uid="uid://bs1bvj65q3fip" path="res://Assets/BolaAzul.png" id="1_isnp7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlueBall" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_isnp7")
